@@ -43,6 +43,7 @@ var comjs = (function () {
         modules[object.name] = object;
         console.log(modules);
     }
+
     var start = function () {
         this.recognizer.continuous = true;
         this.recognizer.start();
@@ -59,6 +60,10 @@ var comjs = (function () {
 
     }
 
+    var stop = function () {
+        this.recognizer.stop();
+    }
+
     var comjs = {
 
         parser: parser,
@@ -67,12 +72,21 @@ var comjs = (function () {
         modules: modules,
         recognizer: recognizer,
         store: store,
-        start: start
+        start: start,
+        stop: stop
 
     };
 
     return comjs;
 }());
+
+comjs.recognizer.onstart = function () {
+    document.getElementById('msg').innerHTML = "Click stop to stop listening";
+}
+
+comjs.recognizer.onend = function () {
+    document.getElementById('msg').innerHTML = "Click start to start listening";
+}
 
 comjs.store({
     name: 'refresh',
