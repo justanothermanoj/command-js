@@ -48,10 +48,10 @@ var comjs = (function () {
         this.recognizer.continuous = true;
         this.recognizer.start();
         this.recognizer.onresult = function (event) {
-
             for (var i = event.resultIndex; i < event.results.length; ++i) {
                 if (event.results[i].isFinal) {
                     execute(event.results[i][0].transcript);
+                    document.getElementById('log').innerHTML += '<br>' + event.results[i][0].transcript;
                 } else {
                     console.log(event.results[i][0].transcript);
                 }
