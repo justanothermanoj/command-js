@@ -5,13 +5,33 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="js/command.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+    	body {
+    		font-size: 20px;
+    	}
+    	.jumbotron {
+    		margin-top: 50px;
+    	}
+    	.jumbotron > h1 {
+    		margin-bottom: 30px;
+    	}
+    	.btn {
+    		padding: 5px 30px;
+    		font-size: 1em;
+    	}
+    </style>
 </head>
 
 <body>
-<div id="wrapper">
-    <button class="btn" onclick="comjs.start()">Start</button>
-    <p id="output"></p>
-</div>
+    <div id="wrapper">
+        <div class="container">
+            <div class="jumbotron">
+                <h1 id="msg">Click start to start listening</h1>
+                <button class="btn btn-success" onclick="comjs.start()">Start</button>
+                <button class="btn btn-danger" onclick="comjs.stop()">Stop</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
